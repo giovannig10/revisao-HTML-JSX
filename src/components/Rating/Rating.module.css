@@ -31,7 +31,6 @@
   color: #ddd;
 }
 
-/* Tamanhos das estrelas */
 .star.sm {
   font-size: 0.875rem;
 }
@@ -61,14 +60,12 @@
   color: var(--text-gray, #666);
 }
 
-/* Hover effects */
 @media (hover: hover) {
   .rating:hover .star.full {
     color: #ffed4e;
   }
 }
 
-/* High contrast mode */
 @media (prefers-contrast: high) {
   .star.full {
     color: #000;
@@ -79,7 +76,6 @@
   }
 }
 
-/* Responsive */
 @media (max-width: 480px) {
   .rating {
     flex-direction: column;

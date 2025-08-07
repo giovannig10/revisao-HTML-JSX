@@ -112,7 +112,6 @@
   flex: 1;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .overlay {
     padding: 10px;

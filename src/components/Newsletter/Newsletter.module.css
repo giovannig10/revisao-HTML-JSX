@@ -1,0 +1,142 @@
+.newsletter {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem 0;
+  margin: 2rem 0;
+  color: white;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-geist-sans, sans-serif);
+}
+
+.description {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.form {
+  margin-bottom: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.input {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  background: white;
+  color: #374151;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.button {
+  padding: 1rem 1.5rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.button:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.privacy {
+  font-size: 0.875rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    padding: 2rem 0;
+    margin: 1rem 0;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputGroup {
+    flex-direction: column;
+    max-width: 300px;
+  }
+  
+  .button {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .input {
+    padding: 0.875rem 1rem;
+  }
+  
+  .button {
+    padding: 0.875rem 1.25rem;
+  }
+}

@@ -9,7 +9,7 @@ export function Modal({
   title, 
   children, 
   showCloseButton = true,
-  size = 'medium' // small, medium, large
+  size = 'medium'
 }) {
   useEffect(() => {
     const handleEscape = (e) => {

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import ProductCard from "../components/ProductCard/ProductCard";
+import { Newsletter } from "../components/Newsletter";
 import { products } from "../data/products";
 
 export default function Home() {
@@ -11,7 +12,6 @@ export default function Home() {
   useEffect(() => {
     setTotalProducts(products.length);
     
-    // Toast de boas-vindas
     toast.success('Bem-vindo à ElectroStore! 🎉', {
       position: "top-center",
       autoClose: 3000,
@@ -21,7 +21,6 @@ export default function Home() {
       draggable: true,
     });
 
-    // Toast informativo após 1.5 segundos
     setTimeout(() => {
       toast.info('Explore nossos produtos e adicione ao carrinho! 🛒', {
         position: "bottom-right",
@@ -46,6 +45,8 @@ export default function Home() {
           />
         ))}
       </div>
+
+      <Newsletter />
     </div>
   );
 }

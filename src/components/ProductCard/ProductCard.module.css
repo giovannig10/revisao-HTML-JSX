@@ -118,7 +118,6 @@
   box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
 }
 
-/* Estilos para o Modal de Detalhes */
 .productDetailsModal {
   display: flex;
   flex-direction: column;
@@ -170,6 +169,69 @@
   margin-top: 1rem;
   font-size: 1rem;
   padding: 1rem 1.5rem;
+}
+
+.reviewsSection {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.reviewsSection h4 {
+  color: #333;
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.review {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.reviewHeader strong {
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.reviewRating {
+  color: #ffc107;
+  font-size: 0.85rem;
+}
+
+.reviewComment {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.reviewDate {
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.noReviews {
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
 }
 
 @media (max-width: 768px) {

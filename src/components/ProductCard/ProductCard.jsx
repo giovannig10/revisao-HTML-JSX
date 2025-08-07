@@ -5,10 +5,15 @@ import styles from './ProductCard.module.css'
 import { toast } from 'react-toastify'
 import { Alert } from '../Alert'
 import { Modal } from '../Modal'
+import { Loading } from '../Loading'
+import { apiService } from '../../services/api'
+import { useApi } from '../../hooks/useApi'
 
 export default function ProductCard({ product }) {
   const [showAddToCartAlert, setShowAddToCartAlert] = useState(false)
   const [showProductDetails, setShowProductDetails] = useState(false)
+  const [reviews, setReviews] = useState([])
+  const { loading, execute } = useApi()
 
   if (!product) {
     return null
@@ -18,19 +23,33 @@ export default function ProductCard({ product }) {
     setShowAddToCartAlert(true)
   }
 
-  const handleConfirmAddToCart = () => {
-    toast.success(`${product.title} adicionado ao carrinho! 🛒`, {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    })
+  const handleConfirmAddToCart = async () => {
+    try {
+      await execute(
+        () => apiService.addToCart(product.id || 1),
+        `${product.title} adicionado ao carrinho! 🛒`,
+        'Erro ao adicionar produto ao carrinho'
+      );
+    } catch (error) {
+      console.error('Erro ao adicionar ao carrinho:', error);
+    }
   }
 
-  const handleViewDetails = () => {
+  const handleViewDetails = async () => {
     setShowProductDetails(true)
+    
+    if (!reviews.length && product.id) {
+      try {
+        const productReviews = await execute(
+          () => apiService.getReviews(product.id),
+          null,
+          'Erro ao carregar avaliações'
+        );
+        setReviews(productReviews || []);
+      } catch (error) {
+        console.error('Erro ao carregar avaliações:', error);
+      }
+    }
   }
 
   const renderStars = () => {
@@ -121,14 +140,46 @@ export default function ProductCard({ product }) {
                 {product.brand && <li><strong>Marca:</strong> {product.brand}</li>}
               </ul>
             </div>
+
+            <div className={styles.reviewsSection}>
+              <h4>Avaliações dos Clientes:</h4>
+              {loading ? (
+                <Loading size="small" text="Carregando avaliações..." />
+              ) : (
+                <div className={styles.reviewsList}>
+                  {reviews.length > 0 ? (
+                    reviews.map(review => (
+                      <div key={review.id} className={styles.review}>
+                        <div className={styles.reviewHeader}>
+                          <strong>{review.author}</strong>
+                          <span className={styles.reviewRating}>
+                            {'⭐'.repeat(Math.floor(review.rating))} ({review.rating})
+                          </span>
+                        </div>
+                        <p className={styles.reviewComment}>{review.comment}</p>
+                        <small className={styles.reviewDate}>{review.date}</small>
+                      </div>
+                    ))
+                  ) : (
+                    <p className={styles.noReviews}>Nenhuma avaliação disponível ainda.</p>
+                  )}
+                </div>
+              )}
+            </div>
+
             <button 
               className={`${styles.actionButton} ${styles.addToCartButton} ${styles.modalCartButton}`}
               onClick={() => {
                 setShowProductDetails(false)
                 handleAddToCartClick()
               }}
+              disabled={loading}
             >
-              🛒 Adicionar ao Carrinho
+              {loading ? (
+                <Loading size="small" text="" />
+              ) : (
+                '🛒 Adicionar ao Carrinho'
+              )}
             </button>
           </div>
         </div>
