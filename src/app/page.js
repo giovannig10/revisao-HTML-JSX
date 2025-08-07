@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import ProductCard from "../components/ProductCard/ProductCard";
 import { products } from "../data/products";
 
@@ -9,6 +10,24 @@ export default function Home() {
 
   useEffect(() => {
     setTotalProducts(products.length);
+    
+    // Toast de boas-vindas
+    toast.success('Bem-vindo à ElectroStore! 🎉', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+
+    // Toast informativo após 1.5 segundos
+    setTimeout(() => {
+      toast.info('Explore nossos produtos e adicione ao carrinho! 🛒', {
+        position: "bottom-right",
+        autoClose: 4000,
+      });
+    }, 1500);
   }, []);
 
   return (

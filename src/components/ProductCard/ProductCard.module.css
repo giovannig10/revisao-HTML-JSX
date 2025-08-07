@@ -2,40 +2,205 @@
 
 .productCard {
   background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.product-image {
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.productImage {
   width: 100%;
   height: 200px;
-  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 3rem;
 }
 
-.product-title {
-  font-size: 18px;
+.productImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.productTitle {
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.product-price {
-  font-size: 24px;
-  color: #e74c3c;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.productDescription {
-  color: #000000;
-  margin-bottom: 15px;
+  color: #333;
+  margin-bottom: 0.5rem;
   line-height: 1.4;
 }
 
-.product-rating {
-  margin-bottom: 15px;
+.productPrice {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-bottom: 0.75rem;
+}
+
+.productDescription {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.productRating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.stars {
+  color: #ffc107;
+}
+
+.productActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.actionButton {
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.viewDetailsButton {
+  background: #6c757d;
+  color: white;
+}
+
+.viewDetailsButton:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.addToCartButton {
+  background: #28a745;
+  color: white;
+}
+
+.addToCartButton:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* Estilos para o Modal de Detalhes */
+.productDetailsModal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detailsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailsPrice {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.detailsDescription h4,
+.detailsSpecs h4 {
+  color: #333;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.detailsDescription p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.detailsSpecs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailsSpecs li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+}
+
+.detailsSpecs li:last-child {
+  border-bottom: none;
+}
+
+.modalCartButton {
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .productCard {
+    padding: 1rem;
+  }
+  
+  .productImage {
+    height: 150px;
+    font-size: 2.5rem;
+  }
+  
+  .productTitle {
+    font-size: 1rem;
+  }
+  
+  .productActions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .actionButton {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .productDetailsModal {
+    text-align: center;
+  }
+  
+  .detailsPrice {
+    font-size: 1.5rem;
+  }
 }

@@ -1,12 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header/Header";
+import ToastProvider from "../components/ToastProvider";
 
-// Google Fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap", // Otimização para Core Web Vitals
+  display: "swap", 
 });
 
 const geistMono = Geist_Mono({
@@ -40,14 +40,6 @@ export default function RootLayout({ children }) {
       lang="pt-BR" 
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <head>
-        {/* Preconnect para melhor performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Preload de recursos críticos */}
-        <link rel="preload" href="/next.svg" as="image" />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header 
           title="ElectroStore"
@@ -55,6 +47,7 @@ export default function RootLayout({ children }) {
           totalProducts={10}
         />
         <main>{children}</main>
+        <ToastProvider />
       </body>
     </html>
   );

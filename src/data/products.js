@@ -168,20 +168,16 @@ export const products = [
   }
 ];
 
-// Função para simular busca de produtos (async)
 export const fetchProducts = async () => {
-  // Simula delay de API
   await new Promise(resolve => setTimeout(resolve, 500));
   return products;
 };
 
-// Função para obter categorias únicas
 export const getUniqueCategories = () => {
   const categories = products.map(product => product.category);
   return ['todas', ...new Set(categories)];
 };
 
-// Função para filtrar produtos por categoria
 export const getProductsByCategory = (category) => {
   if (category === 'todas') {
     return products;
@@ -189,12 +185,10 @@ export const getProductsByCategory = (category) => {
   return products.filter(product => product.category === category);
 };
 
-// Função para buscar produto por ID
 export const getProductById = (id) => {
   return products.find(product => product.id === parseInt(id));
 };
 
-// Função para obter produtos em destaque
 export const getFeaturedProducts = () => {
   return products.filter(product => product.isNew);
 };

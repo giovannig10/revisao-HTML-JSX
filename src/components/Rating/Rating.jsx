@@ -12,7 +12,6 @@ export default function Rating({ rating, showReviews = true, size = "md" }) {
   const renderStars = () => {
     const starElements = []
 
-    // Estrelas cheias
     for (let i = 0; i < fullStars; i++) {
       starElements.push(
         <span key={`full-${i}`} className={`${styles.star} ${styles.full} ${styles[size]}`}>
@@ -21,7 +20,6 @@ export default function Rating({ rating, showReviews = true, size = "md" }) {
       )
     }
 
-    // Meia estrela
     if (hasHalfStar) {
       starElements.push(
         <span key="half" className={`${styles.star} ${styles.half} ${styles[size]}`}>
@@ -30,7 +28,6 @@ export default function Rating({ rating, showReviews = true, size = "md" }) {
       )
     }
 
-    // Estrelas vazias
     for (let i = 0; i < emptyStars; i++) {
       starElements.push(
         <span key={`empty-${i}`} className={`${styles.star} ${styles.empty} ${styles[size]}`}>
