@@ -6,8 +6,8 @@ import { toast } from 'react-toastify'
 import { Alert } from '../Alert'
 import { Modal } from '../Modal'
 import { Loading } from '../Loading'
-import { apiService } from '../../services/api'
-import { useApi } from '../../hooks/useApi'
+import { apiService } from '../../services/api.jsx'
+import { useApi } from '../../hooks/useApi.jsx'
 
 export default function ProductCard({ product }) {
   const [showAddToCartAlert, setShowAddToCartAlert] = useState(false)

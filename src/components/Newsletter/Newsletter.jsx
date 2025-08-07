@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import styles from './Newsletter.module.css';
-import { apiService } from '../../services/api';
-import { useApi } from '../../hooks/useApi';
+import { apiService } from '../../services/api.jsx';
+import { useApi } from '../../hooks/useApi.jsx';
 import { Loading } from '../Loading';
 
 export function Newsletter() {

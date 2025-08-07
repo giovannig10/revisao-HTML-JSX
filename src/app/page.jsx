@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import ProductCard from "../components/ProductCard/ProductCard";
 import { Newsletter } from "../components/Newsletter";
-import { products } from "../data/products";
+import { products } from "../data/products.jsx";
 
 export default function Home() {
   const [totalProducts, setTotalProducts] = useState(0);
